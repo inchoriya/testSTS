@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CGV">
+
+	<delete id="delMov">
+		DELETE FROM MOVIE
+	</delete>
+	
+	<insert id="insertMovie" parameterType="movie">
+		INSERT INTO MOVIE VALUES (#{rank}, #{title}, #{percent}, #{release_date}, #{poster}, #{spec}, #{story})
+	</insert>
+	
+	<select id="cgvList" resultType="movie">
+		SELECT * FROM MOVIE ORDER BY RANK
+	</select>
+	
+	<select id="detailView" parameterType="int" resultType="movie">
+		SELECT * FROM MOVIE WHERE RANK = #{rank}
+	</select>
+	
+	
+</mapper>
+
+
+
